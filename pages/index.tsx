@@ -31,16 +31,16 @@ const socialmedia = [
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center p-0 border-b">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center p-0">
       <Head>
         <title>JxM!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <div className="mt-0 flex flex-row w-full h-fit flex-nowrap items-center justify-around sm:w-full grid-cols-1">
+      <header className="flex h-auto w-full items-center justify-center border-t">
+        <div className="flex flex-row w-full h-fit flex-nowrap items-center justify-around border-b">
           {socialmedia.map((v,i)=><a
             href={v.url}
-            className="mt-0 w-auto rounded-none border border-y-0 p-3 text-center hover:text-red-600 focus:text-red-600"
+            className="mt-0 min-w-fit w-1/6 rounded-none border border-y-0 p-3 text-center hover:text-red-600 focus:text-red-600"
           >
             <h4 className="text-sm font-bold">{v.name}</h4>
           </a>)}
