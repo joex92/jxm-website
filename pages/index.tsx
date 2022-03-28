@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <div className="mt-0 flex flex-row w-full flex-nowrap items-center justify-around sm:w-full grid-cols-1">
+        <div className="mt-0 flex flex-row w-full h-fit flex-nowrap items-center justify-around sm:w-full grid-cols-1">
           {socialmedia.map((v,i)=><a
             href={v.url}
             className="mt-0 w-auto rounded-none border border-y-0 p-3 text-center hover:text-red-600 focus:text-red-600"
