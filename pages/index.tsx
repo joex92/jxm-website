@@ -4,27 +4,27 @@ import Image from 'next/image'
 
 const socialmedia = [
   {
-    name: 'Soundcloud',
+    img: './soundcloud-logo.png',
     url: 'https://soundcloud.com/joex92',
   },
   {
-    name: 'YouTube',
+    img: './youtube-logo.png',
     url: 'https://youtube.com/c/joex92',
   },
   {
-    name: 'Facebook',
+    img: './facebook-logo.png',
     url: 'https://facebook.com/JoeX92',
   },
   {
-    name: 'Instagram',
+    img: './instagram-logo.png',
     url: 'https://instagram.com/J03X92',
   },
   {
-    name: 'Twitter',
+    img: './twitter-logo.png',
     url: 'https://twitter.com/joex92',
   },
   {
-    name: 'Tumblr',
+    img: './tumblr-logo.png',
     url: 'https://joex92.tumblr.com/',
   }
 ]
@@ -37,12 +37,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="flex h-auto w-full items-center justify-center border-t">
-        <div className="flex flex-row w-full h-fit flex-nowrap items-center justify-around border-b">
+        <div className="flex flex-row w-full h-fit flex-nowrap center items-center justify-center border-b">
           {socialmedia.map((v,i)=><a
             href={v.url}
-            className="mt-0 min-w-fit w-1/6 rounded-none border border-y-0 p-3 text-center hover:text-red-600 focus:text-red-600"
+            className="min-w-fit w-1/6 center justify-center rounded-none hover:text-red-600 focus:text-red-600"
           >
-            <h4 className="text-sm font-bold">{v.name}</h4>
+            <img className="max-h-10" src={v.img}/>
           </a>)}
         </div>
       </header>
