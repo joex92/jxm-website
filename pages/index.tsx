@@ -24,6 +24,10 @@ const socialmedia = [
     url: 'https://twitter.com/joex92',
   },
   {
+    img: './tiktok-logo.png',
+    url: 'https://tiktok.com/@joex92',
+  },
+  {
     img: './tumblr-logo.png',
     url: 'https://joex92.tumblr.com/',
   }
@@ -36,19 +40,19 @@ const Home: NextPage = () => {
         <title>JxM!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="flex h-auto w-full items-center justify-center border-t">
-        <div className="flex flex-row w-full h-fit flex-nowrap center items-center justify-center border-b">
+      <header className="fixed flex top-0 h-auto w-full items-center justify-center border-b">
+        <div className="flex flex-row w-full h-fit flex-nowrap items-center justify-center">
           {socialmedia.map((v,i)=><a
             href={v.url}
-            className="min-w-fit w-1/6 center justify-center rounded-none hover:text-red-600 focus:text-red-600"
-          >
+            className="min-w-fit rounded-none hover:text-red-600 focus:text-red-600 py-1 mx-auto"
+            target="_blank">
             <img className="max-h-10" src={v.img}/>
           </a>)}
         </div>
       </header>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
-          JxM!
+          <img className="min-w-fit" src="./JXMO-logo.png" />
         </h1>
 
         <p className="mt-3 text-2xl">
@@ -59,7 +63,7 @@ const Home: NextPage = () => {
 
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
+      <footer className="fixed bottom-0 flex h-24 w-full items-center justify-center border-t">
         <a
           className="flex items-center justify-center gap-2"
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
