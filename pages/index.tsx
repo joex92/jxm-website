@@ -35,13 +35,13 @@ const socialmedia = [
 ]
 
 const fetch2b2t = async() => {
-    const res = await fetch(`https://mcapi.xdefcon.com/server/2b2t.org/motd/json`,{ method: 'GET',mode: 'no-cors' })
+    const res = await fetch('https://mcapi.xdefcon.com/server/2b2t.org/motd/json')
     console.log(res)
 
     // If the status code is not in the range 200-299,
     // we still try to parse and throw it.
     if (!res.ok) {
-      const error = new Error('An error occurred while fetching the data.')
+      const error = new Error('An error occurred while fetching the data.',)
       // Attach extra info to the error object.
       // error.info = await res.json()
       // error.status = res.status
