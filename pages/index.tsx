@@ -35,7 +35,7 @@ const socialmedia = [
 ]
 
 const fetch2b2t = async() => {
-    const res = await fetch('https://mcapi.xdefcon.com/server/2b2t.org/motd/json')
+    const res = await fetch('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',{ method: 'GET', mode: 'no-cors' })
     console.log(res)
 
     // If the status code is not in the range 200-299,
