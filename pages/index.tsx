@@ -51,9 +51,9 @@ const fetch2b2t = async() => {
     return res.json()
 }
 
+
 const Home: NextPage = () => {
   const {data, error} = useSWR('2b2t',fetch2b2t)
-  console.log(data)
   console.error(error)
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center p-0">
@@ -77,9 +77,9 @@ const Home: NextPage = () => {
         </h1>
 
         <p className="mt-3 text-2xl">
-          <code className="rounded-md bg-gray-100 py-3 font-mono text-lg">
-            Coding & Music Production
-            {}
+          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
+            Coding & Music Production <br />
+            {String(data)}
           </code>
         </p>
 
