@@ -35,7 +35,7 @@ const socialmedia = [
 ]
 
 const fetch2b2t = async() => {
-    const response = await fetch(`https://minecraft-api.com/api/ping/2b2t.org/25565/json`)
+    const response = await fetch(`https://minecraft-api.com/api/ping/2b2t.org/25565/json`,{mode: 'no-cors'})
     const data = await response.json()
     return data
 }
