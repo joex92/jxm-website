@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import useSWR from 'swr'
 
 const socialmedia = [
   {
@@ -33,7 +34,15 @@ const socialmedia = [
   }
 ]
 
+const fetch2b2t = async() => {
+    const response = await fetch(`https://minecraft-api.com/api/ping/2b2t.org/25565/json`)
+    const data = await response.json()
+    return data
+}
+
 const Home: NextPage = () => {
+  const {data, error} = useSWR('2b2t',fetch2b2t)
+  console.log(data,error);
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center p-0">
       <Head>
@@ -52,12 +61,13 @@ const Home: NextPage = () => {
       </header>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
-          <img className="min-w-fit" src="./JXMO-logo.png" />
+          <img className="w-fit" src="./JXMO-logo.png" />
         </h1>
 
         <p className="mt-3 text-2xl">
           <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
             Coding & Music Production
+            {}
           </code>
         </p>
 
@@ -77,5 +87,19 @@ const Home: NextPage = () => {
     </div>
   )
 }
+
+// export async function getServerSideProps(context: { query: any }){
+//   const { query } = context
+//   const { mcuser } = query
+//   const querystring = mcuser
+//   const response = await fetch(`http://skinsystem.ely.by/textures/${querystring}`)
+//   const data = await response.json()
+//   console.log(data)
+//   return { 
+//     props: {
+//       eventList: data,
+//     },
+//    }
+// }
 
 export default Home
