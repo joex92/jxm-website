@@ -35,14 +35,20 @@ const socialmedia = [
 ]
 
 const fetch2b2t = async() => {
-    const response = await fetch(`https://minecraft-api.com/api/ping/2b2t.org/25565/json`,{ method: 'GET',mode: 'no-cors' })
-    console.log(response)
-    if (response.ok){
-      const data = await response.json()
-      return data
-    } else {
-      return response
+    const res = await fetch(`https://mcapi.xdefcon.com/server/2b2t.org/motd/json`,{ method: 'GET',mode: 'no-cors' })
+    console.log(res)
+
+    // If the status code is not in the range 200-299,
+    // we still try to parse and throw it.
+    if (!res.ok) {
+      const error = new Error('An error occurred while fetching the data.')
+      // Attach extra info to the error object.
+      error.info = await res.json()
+      error.status = res.status
+      throw error
     }
+  
+    return res.json()
 }
 
 const Home: NextPage = () => {
@@ -65,13 +71,13 @@ const Home: NextPage = () => {
           </a>)}
         </div>
       </header>
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className="flex w-full flex-1 flex-col items-center justify-center text-center">
         <h1 className="text-6xl font-bold">
           <img className="w-fit" src="./JXMO-logo.png" />
         </h1>
 
         <p className="mt-3 text-2xl">
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
+          <code className="rounded-md bg-gray-100 py-3 font-mono text-lg">
             Coding & Music Production
             {}
           </code>
