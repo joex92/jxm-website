@@ -35,14 +35,20 @@ const socialmedia = [
 ]
 
 const fetch2b2t = async() => {
-    const response = await fetch(`https://minecraft-api.com/api/ping/2b2t.org/25565/json`,{mode: 'no-cors'})
-    const data = await response.json()
-    return data
+    const response = await fetch(`https://minecraft-api.com/api/ping/2b2t.org/25565/json`,{ method: 'GET',mode: 'no-cors' })
+    console.log(response)
+    if (response.ok){
+      const data = await response.json()
+      return data
+    } else {
+      return response
+    }
 }
 
 const Home: NextPage = () => {
   const {data, error} = useSWR('2b2t',fetch2b2t)
-  console.log(data,error);
+  console.log(data)
+  console.error(error)
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center p-0">
       <Head>
