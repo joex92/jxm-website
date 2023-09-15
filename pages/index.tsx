@@ -64,7 +64,7 @@ const Home: NextPage = () => {
     const {data, error} = useSWR('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',fetchjson('https://mcapi.xdefcon.com/server/2b2t.org/motd/json'))
     console.error(error)
   } catch(err) {
-    console.error(error)
+    console.error(err)
   }
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center p-0">
