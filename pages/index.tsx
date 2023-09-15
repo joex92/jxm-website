@@ -60,8 +60,12 @@ const fetchjson = async(url: string) => {
 
 
 const Home: NextPage = () => {
-  const {data, error} = useSWR('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',fetchjson('https://mcapi.xdefcon.com/server/2b2t.org/motd/json'))
-  console.error(error)
+  try {
+    const {data, error} = useSWR('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',fetchjson('https://mcapi.xdefcon.com/server/2b2t.org/motd/json'))
+    console.error(error)
+  } catch(err) {
+    console.error(error)
+  }
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center p-0">
       <Head>
