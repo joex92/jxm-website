@@ -5,37 +5,44 @@ import useSWR from 'swr'
 
 const socialmedia = [
   {
+    title: 'Soundcloud',
     img: './soundcloud-logo.png',
     url: 'https://soundcloud.com/joex92',
   },
   {
+    title: 'Youtube',
     img: './youtube-logo.png',
     url: 'https://youtube.com/c/joex92',
   },
   {
+    title: 'Facebook',
     img: './facebook-logo.png',
     url: 'https://facebook.com/JoeX92',
   },
   {
+    title: 'Instagram',
     img: './instagram-logo.png',
     url: 'https://instagram.com/J03X92',
   },
   {
+    title: 'Twitter',
     img: './twitter-logo.png',
     url: 'https://twitter.com/joex92',
   },
   {
+    title: 'Tiktok',
     img: './tiktok-logo.png',
     url: 'https://tiktok.com/@joex92',
   },
   {
+    title: 'Tumblr',
     img: './tumblr-logo.png',
     url: 'https://joex92.tumblr.com/',
   }
 ]
 
-const fetch2b2t = async() => {
-    const res = await fetch('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',{ method: 'GET', mode: 'no-cors' })
+const fetchjson = async(url: string) => {
+    const res = await fetch(url,{ method: 'GET', mode: 'no-cors' })
     console.log(res)
 
     // If the status code is not in the range 200-299,
@@ -53,7 +60,7 @@ const fetch2b2t = async() => {
 
 
 const Home: NextPage = () => {
-  const {data, error} = useSWR('2b2t',fetch2b2t)
+  const {data, error} = useSWR('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',fetchjson('https://mcapi.xdefcon.com/server/2b2t.org/motd/json'))
   console.error(error)
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center p-0">
@@ -66,6 +73,7 @@ const Home: NextPage = () => {
           {socialmedia.map((v,i)=><a
             href={v.url}
             className="min-w-fit rounded-none hover:text-red-600 focus:text-red-600 py-1 mx-auto"
+            title={v.title}
             target="_blank">
             <img className="max-h-10" src={v.img}/>
           </a>)}
