@@ -61,7 +61,7 @@ const fetchjson = async(url: string) => {
 
 const Home: NextPage = () => {
   try {
-    const {data, error} = useSWR('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',fetchjson('https://mcapi.xdefcon.com/server/2b2t.org/motd/json'))
+    const {data, error} = useSWR('https://mcapi.xdefcon.com/server/2b2t.org/motd/json',fetchjson)
     console.error(error)
   } catch(err) {
     console.error(err)
